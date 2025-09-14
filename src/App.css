@@ -1,0 +1,158 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: #eef2f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal */
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 40px 30px; /* mais espaço interno */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Títulos */
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* Formulário */
+
+form div {
+  display: flex;
+  align-items: center; /* alinha verticalmente label e input */
+  justify-content: space-between;
+  margin-bottom: 10px; /* espaço entre as linhas do formulário */
+}
+
+form label {
+  width: 30%; /* ocupa menos espaço */
+  font-weight: 600;
+  color: #34495e;
+}
+
+form input {
+  width: 65%; /* ocupa a maior parte do espaço restante */
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: right;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #3b64ce;
+  outline: none;
+}
+/* Botão */
+form button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px; /* espaço entre inputs e botão */
+  background-color: #3b64ce;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background-color: #2f4eb3;
+  transform: scale(1.03);
+}
+
+/* Resultado do IMC */
+.resultado {
+  margin-top: 25px; /* mais espaço antes do resultado */
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #2c3e50;
+  min-height: 1.5em;
+  transition: color 0.3s;
+}
+
+/* Tabela */
+#tabela-imc {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px; /* mais espaçamento entre resultado e tabela */
+  text-align: center;
+  font-size: 0.95em;
+}
+
+#tabela-imc th,
+#tabela-imc td {
+  padding: 14px; /* mais espaçamento dentro das células */
+  border: 1px solid #ddd;
+}
+
+#tabela-imc th {
+  background-color: #3b64ce;
+  color: #fff;
+  font-weight: 600;
+}
+
+#tabela-imc tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tabela-imc tr:hover {
+  background-color: #dce6f2;
+  transition: background-color 0.3s;
+}
+
+#tabela-imc tr.destacado {
+  background-color: #c8e6c9;
+  font-weight: bold;
+  color: #155724;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  form .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form input {
+    width: 100%;
+  }
+
+  form button {
+    margin-top: 15px;
+  }
+}
