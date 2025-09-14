@@ -1,69 +1,90 @@
-# React + TypeScript + Vite
+# Calculadora de IMC - React + Vite + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web simples desenvolvida em **React**, **Vite** e **TypeScript** para calcular o **Índice de Massa Corporal (IMC)** e classificar os resultados de acordo com os padrões da OMS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Funcionalidades
 
-## Expanding the ESLint configuration
+- **Cálculo do IMC**: baseado na fórmula oficial:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  IMC = $\frac{peso \ (kg)}{altura^2 \ (m)}$
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Classificação detalhada do IMC**:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  | Intervalo de IMC    | Situação           |
+  | ------------------- | ------------------ |
+  | Menor que 18.5      | Abaixo do peso     |
+  | 18.5 - 24.9         | Peso normal        |
+  | 25.0 - 29.9         | Sobrepeso          |
+  | 30.0 - 34.9         | Obesidade grau I   |
+  | 35.0 - 39.9         | Obesidade grau II  |
+  | Maior ou igual a 40 | Obesidade grau III |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Tabela visual**: exibe todos os intervalos de IMC, destacando automaticamente a linha correspondente ao valor calculado.
+
+- **Validação de entrada**:
+
+  - Alertas caso altura ou peso estejam em branco ou com valores inválidos.
+  - Limpeza do destaque da tabela e do resultado quando os campos não forem preenchidos corretamente.
+
+- **Responsivo e estilizado**:
+
+  - Layout moderno com card centralizado.
+  - Inputs e botão estilizados para melhor experiência do usuário.
+  - Tabela com cores suaves e efeito hover.
+
+- **Gerenciamento de estado com Context API**: altura, peso e resultado do IMC são compartilhados entre componentes.
+
+---
+
+## 💻 Tecnologias utilizadas
+
+- **React 18** (com Functional Components e Hooks)
+- **Vite** (ferramenta de build rápida e moderna)
+- **TypeScript** (tipagem estática)
+- **CSS3** (flexbox, responsividade e estilos modernos)
+- **Context API do React** para gerenciar estado global
+
+---
+
+## 📂 Estrutura de componentes
+
+- `App.tsx` – Componente principal que monta o layout e integra os componentes.
+- `ResultadoIMC.tsx` – Exibe o resultado do cálculo do IMC.
+- `TabelaIMC.tsx` – Exibe a tabela de classificações, destacando o IMC calculado.
+- `IMCContext.tsx` – Context API para compartilhar altura, peso e resultado entre componentes.
+
+---
+
+## 🚀 Como usar
+
+1. Clone o projeto ou baixe o ZIP.
+2. Instale as dependências:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Execute a aplicação em modo de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+4. Abra o navegador no endereço exibido no terminal (geralmente `http://localhost:5173`).
+5. Preencha os campos:
+
+- **Altura** (em metros, ex: 1.75)
+- **Peso** (em kg, ex: 70)
+
+6. Clique em **Calcular IMC**.
+7. O resultado será exibido abaixo do formulário e a **linha correspondente na tabela será destacada** automaticamente.
+
+---
+
+## 📝 Observações
+
+- O projeto foi reescrito utilizando **TypeScript** para maior segurança e robustez no código.
+- Cada funcionalidade (resultado e tabela) está separada em **componentes React**, seguindo boas práticas.
+- A aplicação é totalmente responsiva e funciona em diferentes tamanhos de tela.
